@@ -4,6 +4,6 @@ Partimos de la motivación de poner a disposición de todo aquel interesado una 
 
 
 # Eureka
-<b>BD Mysql.</b>
+<b>MONGODB.</b>
 Visitenos en:<i> http://www.emiliogomez.com.ve</i>
 
