@@ -1,0 +1,118 @@
+mongoDB
+
+Como root iniciamos el servicio.
+
+Ejecutamos para shell de mondoDB
+#mongo 
+
+para crear BD:
+>use basedatos
+
+Para mostrar la BD creada:
+>db
+
+Para mostrar la BD existentes:
+>show dbs 
+
+Para crear coleccion implicita:
+Inserta documento:
+
+>db.nombreColeccion.insert({
+
+
+})
+
+Por ejemplo:
+
+>db.usuarios.insert({ 
+"cedula": "0999333",
+"nombre": "Pedro Perez",
+"clave": "123456789",
+"pais": "Venezuela"
+})
+
+Al ejecutar:
+
+>show dbs 
+Se muestra la BD creada.
+
+Para crear coleccion de manera explicita:
+
+>db.createCollection("nombreColeccion")
+
+Para mostrar coleccion:
+
+>show collections
+
+Para eliminar una colección:
+
+>db.nombreColeccion.drop()
+
+Por ejemplo:
+
+>db.productos.drop()
+
+Para eliminar la BD:
+Primero nos aseguramos que estemos en la BD:
+
+>use nombreBasedatos
+
+Luego se ejecuta:
+
+>db.dropDatabase()
+
+Para ver el contenido insewrtado en la coleccion:
+
+>db.nombreColeccion.find().pretty()
+
+Para editar una coleccion:
+
+>db.nombreColeccion.update({
+},
+{
+}
+)
+
+Por ejemplo:
+>db.productos.update({ "id":"1"}, $set: {"valor":20.45})
+
+Para eliminar datos de coleccion.
+Por ejemplo:
+
+>db.productos.deleteOne({ "id": "21" })
+
+Podemos ver si se elimino con:
+
+>db.productos.find().pretty()
+
+Nota:
+db.productos.find().pretty() muestra todos los registros de la coleccion productos, si queremos ver solo uno se debe usar: db.productos.findOne().pretty() dentro de FIND se coloca los parametros de busquedas.
+
+Por ejemplo:
+
+>db.productos.find({ "valor": 15.0})
+
+Para limitar resultados de busqueda se usa la funcion limit()
+
+Por ejemplo:
+devuelve un resultado
+>db.productos.find().limit(1) 
+
+Otro ejemplo seria usando la funcion sort.
+
+>db.productos.find().sort({valor:1})
+
+
+Backup en mongoDB.
+
+#mongoexport --db baseDatos --collection nombreColeccion --out nombreColeccion.json
+
+
+Restaurar BDatos.
+
+#mongoimport --db baseDatos --collection nombreColeccion --file nombreColeccion.json
+
+
+
+
+
